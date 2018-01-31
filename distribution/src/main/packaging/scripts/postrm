@@ -74,10 +74,9 @@ if [ "$REMOVE_DIRS" = "true" ]; then
         echo " OK"
     fi
 
-    if [ -d "$PID_DIR" ]; then
-        echo -n "Deleting PID directory..."
-        rm -rf "$PID_DIR"
-        echo " OK"
+    if [ -n  "$PID_DIR" ] && [ -d "$PID_DIR" ]; then 
+        printf 'Deleting PID directory %s\n' "$PID_DIR"
+        rm -rf "$PID_DIR" 
     fi
 
     # Delete the data directory if and only if empty
